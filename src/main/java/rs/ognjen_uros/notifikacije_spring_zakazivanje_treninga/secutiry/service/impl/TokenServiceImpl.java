@@ -5,7 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import rs.ognjen_uros.spring_zakazivanje_treninga.secutiry.service.TokenService;
+import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.secutiry.service.TokenService;
 
 @Service
 public class TokenServiceImpl implements TokenService {
