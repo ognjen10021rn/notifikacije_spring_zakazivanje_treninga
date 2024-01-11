@@ -1,4 +1,4 @@
-package rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.secutiry.service;
+package rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.service;
 
 import io.jsonwebtoken.Claims;
 

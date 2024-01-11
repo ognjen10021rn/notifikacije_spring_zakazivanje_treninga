@@ -1,11 +1,11 @@
-package rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.secutiry.service.impl;
+package rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.service.impl;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.secutiry.service.TokenService;
+import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.service.TokenService;
 
 @Service
 public class TokenServiceImpl implements TokenService {

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.secutiry.service.TokenService;
+import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.service.TokenService;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
