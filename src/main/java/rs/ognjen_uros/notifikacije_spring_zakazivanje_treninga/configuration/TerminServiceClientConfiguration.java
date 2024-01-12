@@ -17,7 +17,7 @@ import java.util.Collections;
 public class TerminServiceClientConfiguration {
 
     @Bean
-    public RestTemplate movieServiceRestTemplate() {
+    public RestTemplate terminServiceRestTemplate() {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory("http://localhost:8081/api"));
         restTemplate.setInterceptors(Collections.singletonList(new TokenInterceptor()));

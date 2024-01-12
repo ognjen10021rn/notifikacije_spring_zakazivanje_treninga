@@ -17,7 +17,7 @@ import java.util.Collections;
 public class UserServiceClientConfiguration {
 
     @Bean
-    public RestTemplate movieServiceRestTemplate() {
+    public RestTemplate userServiceRestTemplate() {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.setUriTemplateHandler(new DefaultUriBuilderFactory("http://localhost:8080/api"));
         restTemplate.setInterceptors(Collections.singletonList(new TokenInterceptor()));
