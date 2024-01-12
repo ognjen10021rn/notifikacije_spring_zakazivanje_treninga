@@ -5,12 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.dto.SendScheduledTreningConfirmationDto;
-import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.dto.TerminDto;
-import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.dto.UserDto;
-import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.dto.UserTerminCreateDto;
+import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.dto.*;
 import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.exception.NotFoundException;
 import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.listener.helper.MessageHelper;
 import rs.ognjen_uros.notifikacije_spring_zakazivanje_treninga.service.EmailServiceImpl;
@@ -19,6 +17,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import java.util.List;
 
+@Component
 public class EmailListener {
     private MessageHelper messageHelper;
     private EmailServiceImpl emailService;
@@ -30,9 +29,9 @@ public class EmailListener {
 
     @JmsListener(destination="send_verification_for_user", concurrency = "5-10")
     public void sendVerificationMessage(Message message)throws JMSException {
-        SendScheduledTreningConfirmationDto sendScheduledTreningConfirmationDto = messageHelper.getMessage(message, SendScheduledTreningConfirmationDto.class);
-        sendScheduledTreningConfirmationDto.setToString(-1);
-        emailService.sendSimpleMessage(sendScheduledTreningConfirmationDto.getEmail(),"Uspesno ste se prijavila na nasu stranicu", sendScheduledTreningConfirmationDto.toString());
+        SendVerificationLinkToUserDto sendVerificationLinkToUserDto = messageHelper.getMessage(message, SendVerificationLinkToUserDto.class);
+        System.out.println(sendVerificationLinkToUserDto.toString());
+        emailService.sendSimpleMessage(sendVerificationLinkToUserDto.getEmail(),"Uspesno ste se prijavila na nasu stranicu " + sendVerificationLinkToUserDto.getFirstName() + " " + sendVerificationLinkToUserDto.getLastName(), sendVerificationLinkToUserDto.getLink());
     }
 
     @Scheduled(cron = "5 8 * * *")
